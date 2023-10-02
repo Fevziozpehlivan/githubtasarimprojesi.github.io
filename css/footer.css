@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* En Genel Kullandığımız CSS Kodlarını öncelikle Yazarak Başlıyoruz */
+
+body{
+    line-height: 1.5;
+    font-family: 'Poppins',sans-serif;
+}
+
+/* her yerde geçerli kodlarımızı yazalım 
+
+    burada sistemin bize otomatik olarak verdiği ddeğerleri 
+    istemiyoruz oyuzden sıfırlıyoruz.
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container ile yazmaya başlıyoruz yani en baştan alta doğru ilerleyeceğiz */
+
+.container{
+    /* bu containerin maximum genişliğini belirtiyoruz  */
+    max-width: 1170px;
+
+    /* sağdan soldan yukardan aşağıdan ortalıyoruz */
+    margin: auto;
+}
+
+/* şimdide container klasından sonraki class row clasını yazıcaz */
+
+.row{
+    /* bu özellikle itemlerı yanyana getiriyoruz */
+    display: flex;
+
+    /* bu özellklede ekranı kuculttukce en sondan ilk itemın altına atarak sıralar. */
+    flex-wrap: wrap;
+}
+
+/* burada ul lerdeki nokta işaretlerini kaldırmak için yazdık. */
+ul{
+    list-style: none;
+}
+
+/* footera stilimizi vericez */
+
+footer{
+    /* arka plan rengini vericez footerımıza */
+    background-color: #24262B;
+
+    /* yukardan aşağı ve soldan sağa  */
+    padding: 70px 0;
+}
+
+/* şimdi sırada Footer-col classımız var  */
+
+.footer-col{
+    /* genişlik vericez */
+    width: 25%;
+
+    padding: 0 15px;
+
+}
+
+/* şimdi footer-col altındaki h4 lere stil vericez */
+
+.footer-col h4{
+    /* başlıkların yazı boyutunu belirttik */
+    font-size: 18px;
+
+    /* rengini belirtiyoruz */
+    color: #fff;
+
+    /* text-transform özelliği => yazı karakterlerini büyük harften küçük harfe, 
+    küçük haften büyük harfe ya da kelimelerin baş harflerinin büyük harfe çevrilmesinde kullanılır. */
+    text-transform: capitalize;
+
+    margin-bottom: 35px;
+
+    /* yazıya kalınlık veriyoruz */
+    font-weight: 500;
+
+    /* bu kodun amacı başlık yazılarına esneklik kazandırarak 
+    altına ustune işaretler çizgiler koyabilmemizi sağlar  */
+    position: relative;
+}
+
+.footer-col h4::before{
+    /* bu etiketi açmamız lazım after veya before kullanacagımız zaman */
+    content: '';
+
+    /*bu komutla nesne normal akış içinden çıkar ayrıca 4 köşeden konumlandırma yapmamızı sağlar */
+    position: absolute;
+
+    /* soldan sıfırladık konumu */
+    left: 0;
+
+    /* alttan -10 piksel dedik */
+    bottom: -10px;
+
+    /* arkaplan rengini verdik */
+    background-color: #e91e63;
+
+    /* yüksekliğini verdik  */
+    height: 2px;
+
+    /* genişliğini verdik */
+    width: 50px;
+
+}
+
+/* şimdi de li lerdeki yazı boşluklarını ayarlayacagız */
+
+/* burada diyoruzki footer daki ul altındaki lilerin sondaki cocugunun haricinde bu komutları uygula */
+.footer ul li:not(:last-child){
+
+    /* alttan boşluk vericez ama en sondakinin altından vermeyecek diye belirtmiştik */
+    margin-bottom: 10px;
+}
+
+/* şimdi renklendireceğiz */
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    
+    /* burada a etiketlerinin altındaki çizgiyi kaybediyoruz */
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+
+    /* bu komutla yazının üzerine geldiğimizde hover değerinin hareketini belirtir */
+    transition: all 0.3s ease;
+
+}
+
+/* şimdi yukardaki hover ozelliğini transition ile verdikten sonra hoverın hareketini göstermek için komut yazıcak */
+
+.footer-col ul li a:hover{
+    color: #fff;
+
+    /* buradada üzerine geldiğimiz zaman soldan 8px boşluk verdikki sağa doğru 8px oynasın */
+    padding-left: 8px;
+}
+
+/* burdada sosyal linki vererek iconları çektimiz kısmı düzenlemek için kullanıyoruz. */
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    background-color: rgb(255, 255, 255, 0.2);
+    margin: 0 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+
+    /* şimdi hover olayını bunada vereceğimiz için transitionu kullanıyoruz */
+    transition: all 0.9s ease;
+}
+
+.footer-col .social-links a:hover{
+    color: #24262B;
+    background-color: #fff;
+}
+
+/* mobil için = responsive */
+
+/* burada diyoruzki maximum genişlik 767 oldugunda footer coldakileri 
+    genişliğini yüzde 50 yap alttan da 30px boşluk ver
+*/
+@media(max-width:767px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+/* buradada diyoruzki maximum genişlik 574 oldugunda footer col dakileri ekrana sıgdır yani yuzde yuz yap */
+
+@media(max-width:574px){
+    .footer-col{
+        width: 100%;
+    }
+}
+
